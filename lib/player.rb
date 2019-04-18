@@ -1,5 +1,5 @@
 class Player
-  attr_reader : name, icon
+  attr_reader :name, :icon
     def method_name(name, icon)
       @name = name
       @icon = icon     

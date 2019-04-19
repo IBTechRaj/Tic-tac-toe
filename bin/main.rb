@@ -1,7 +1,7 @@
 load '..\lib\player.rb'
 load '..\lib\game.rb'
 
-def choose_players
+def main
   print 'Player name who wish to choose X :'
   player1_name = gets.chomp
   player1 = Player.new(player1_name, 'X')
@@ -14,7 +14,7 @@ def choose_players
   start_game.game_start 
   print 'Do you want to play again: (Y/N) '
   wish = gets.chomp.to_s.upcase
-  choose_players until wish == 'N'
+  main until wish == 'N'
 end
 
-choose_players
+main

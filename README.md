@@ -3,7 +3,7 @@ This is a Ruby OOP project recomended by [Microverse](https://www.microverse.org
 ## Description
 A console game using Ruby language. 
 
-** Two Players alternatively put X's and O's to fill out the board. If a player fill the board with its dedicated three consecutive symbol horizontally or vertically or diagonally before his opponent, it is a win. For more information [https://en.wikipedia.org/wiki/Tic-tac-toe](https://en.wikipedia.org/wiki/Tic-tac-toe) **
+** Two Players alternatively put X's and O's to fill out the board. If a player fill the board with its dedicated three consecutive symbols horizontally or vertically or diagonally before his opponent, it is a win. For more information [https://en.wikipedia.org/wiki/Tic-tac-toe](https://en.wikipedia.org/wiki/Tic-tac-toe) **
 
 ## Technology Used
 <ul>

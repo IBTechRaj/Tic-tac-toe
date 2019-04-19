@@ -5,11 +5,11 @@ class Board
   end
 
   def display_board
-    puts "  #{@environ[7]} | #{@environ[8]} | #{@environ[9]}"
+    puts "  #{@environ[6]} | #{@environ[7]} | #{@environ[8]}"
     puts ' ---|---|---'
-    puts "  #{@environ[4]} | #{@environ[5]} | #{@environ[6]}"
+    puts "  #{@environ[3]} | #{@environ[4]} | #{@environ[5]}"
     puts ' ---|---|---'
-    puts "  #{@environ[1]} | #{@environ[2]} | #{@environ[3]}"
+    puts "  #{@environ[0]} | #{@environ[1]} | #{@environ[2]}"
   end
 
   def full

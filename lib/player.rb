@@ -7,9 +7,6 @@ class Player
     @player_move = []
   end
 
-  def win?(combo)
-    combo & @player_move == combo
-  end
 
   def move(board)
     puts "#{@name} Enter your move"

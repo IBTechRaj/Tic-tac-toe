@@ -33,10 +33,14 @@ class Game
     players = [@player1, @player2]
     players.each do |player|
       @result_combinations.each do |combo|
-        return player.name if player.win?(combo)
+        return player.name if win?(player,combo)
       end
     end
     false
+  end
+
+  def win?(player,combo)
+    combo & player.player_move == combo
   end
 
   def play(player)

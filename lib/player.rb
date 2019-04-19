@@ -1,9 +1,27 @@
 class Player
+  attr_accessor :player_move
   attr_reader :name, :icon
-    def method_name(name, icon)
-      @name = name
-      @icon = icon     
-      @player_move = []
+  def initialize(name, icon)
+    @name = name
+    @icon = icon
+    @player_move = []
+  end
+
+  def win?(combo)
+    combo & @player_move == combo
+  end
+
+  def move(board)
+    puts "#{@name} Enter your move"
+    choice = gets.chomp.to_i
+    if (1..9).cover?(choice)
+      if board.is_filled?(choice-1)
+        puts 'Place taken try again'
+      else
+        choice
+      end
+    else
+      puts 'Enter a valid number'
     end
-    
+  end
 end

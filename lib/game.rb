@@ -1,34 +1,53 @@
 require '..\lib\player.rb'
 require '..\lib\board.rb'
 class Game
-    def def initialize(player1, player2)   
-      @player1 = player1
-      @player1 = player2
-      @board = Board.new([1,2,3,4,5,6,7,8,9])
-      @turn = 1
-      @result_combinations = [[1,2,3],[4,5,6],[7,8,9],
-                              [1,4,7],[2,5,8],[3,6,9],
-                              [1,5,9],[3,5,7]
-                             ] 
-    end
-    
-    def start
+  def initialize(player1, player2)
+    @player1 = player1
+    @player2 = player2
+    @board = Board.new([1, 2, 3, 4, 5, 6, 7, 8, 9])
+    @turn = 1
+    @result_combinations = [[1, 2, 3], [4, 5, 6], [7, 8, 9],
+                            [1, 4, 7], [2, 5, 8], [3, 6, 9],
+                            [1, 5, 9], [2, 5, 7]]
+  end
 
+  def game_start
+    until (winner? || @board.full?)
+      @turn == 1 ? play(@player1) : play(@player2)
+      @turn = @turn == 1 ? 0 : 1
     end
+    game_end
+  end
 
-    def winner?
-      players = [@player1, @player2]
-      players.each {|player|
-        @result_combinations.each{|combo|
-          return player.name() if win?(combo)
-        }
-      }
+  def game_end
+    if winner?
+      @board.display_board
+      puts "Winner is: #{winner?}"
+    elsif @board.full?
+      @board.display_board
+      puts 'It is a tie'
     end
+  end
 
-    def win?(combo)
-      if combo & player.player_move() == combo
-        true
+  def winner?
+    players = [@player1, @player2]
+    players.each do |player|
+      @result_combinations.each do |combo|
+        return player.name if player.win?(combo)
       end
-      false
     end
+    false
+  end
+
+  def play(player)
+    loop do
+      @board.display_board
+      valid_move = player.move(@board)
+      next unless valid_move
+
+      @board.fill(valid_move-1, player.icon)
+      player.player_move.push(valid_move).sort!
+      break
+    end
+  end
 end

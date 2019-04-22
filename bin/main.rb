@@ -16,7 +16,6 @@ def initiate_environment
   game = Game.new(player_1, player_2, board)
   game.game_start
 end
-#Run game:
 
 while true 
   initiate_environment

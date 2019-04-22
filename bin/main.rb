@@ -1,6 +1,6 @@
-load '..\lib\player.rb'
-load '..\lib\game.rb'
-load '..\lib\board.rb'
+require_relative '..\lib\player.rb'
+require_relative '..\lib\game.rb'
+require_relative '..\lib\board.rb'
 
 def create_player(player_symbol)
   print "Player who wish to choose #{player_symbol}:"

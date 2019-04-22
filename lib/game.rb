@@ -1,5 +1,5 @@
-require '..\lib\player.rb'
-require '..\lib\board.rb'
+require_relative '..\lib\player.rb'
+require_relative '..\lib\board.rb'
 class Game
   attr_reader :player1, :player2, :board
   def initialize(player1, player2, board)

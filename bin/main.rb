@@ -1,20 +1,22 @@
 load '..\lib\player.rb'
 load '..\lib\game.rb'
+load '..\lib\board.rb'
 
-def main
-  print 'Player name who wish to choose X :'
-  player1_name = gets.chomp
-  player1 = Player.new(player1_name, 'X')
-
-  print 'Player name who wish to choose O :'
-  player2_name = gets.chomp
-  player2 = Player.new(player2_name, 'O')
-
-  start_game = Game.new(player1, player2)
-  start_game.game_start 
-  print 'Do you want to play again: (Y/N) '
-  wish = gets.chomp.to_s.upcase
-  main until wish == 'N'
+def create_player(player_symbol)
+  print "Player who wish to choose #{player_symbol}:"
+  name = gets.chomp
+  Player.new(name, player_symbol)
 end
 
-main
+#Instantiate objects:
+
+player_1 = create_player("X")
+player_2 = create_player("O")
+board = Board.new([1, 2, 3, 4, 5, 6, 7, 8, 9])
+game = Game.new(player_1, player_2, board)
+
+#Run game:
+game.game_start
+puts 'Do you want to player again? : (Y/N)'
+wish = gets.chomp.to_s.upcase
+main until wish == 'N'

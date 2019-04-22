@@ -9,14 +9,18 @@ def create_player(player_symbol)
 end
 
 #Instantiate objects:
-
-player_1 = create_player("X")
-player_2 = create_player("O")
-board = Board.new([1, 2, 3, 4, 5, 6, 7, 8, 9])
-game = Game.new(player_1, player_2, board)
-
+def initiate_environment
+  player_1 = create_player("X")
+  player_2 = create_player("O")
+  board = Board.new([1, 2, 3, 4, 5, 6, 7, 8, 9])
+  game = Game.new(player_1, player_2, board)
+  game.game_start
+end
 #Run game:
-game.game_start
-puts 'Do you want to play again? : (Y/N)'
-wish = gets.chomp.to_s.upcase
-main until wish == 'N'
+
+while true 
+  initiate_environment
+  puts 'Do you want to play again? : (Y/N)'
+  wish = gets.chomp.to_s.upcase
+  break if wish == 'N'
+end

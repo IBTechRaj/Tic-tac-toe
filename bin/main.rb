@@ -17,6 +17,6 @@ game = Game.new(player_1, player_2, board)
 
 #Run game:
 game.game_start
-puts 'Do you want to player again? : (Y/N)'
+puts 'Do you want to play again? : (Y/N)'
 wish = gets.chomp.to_s.upcase
 main until wish == 'N'

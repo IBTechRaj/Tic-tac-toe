@@ -11,7 +11,6 @@ class Game
                             [1, 4, 7], [2, 5, 8], [3, 6, 9],
                             [1, 5, 9], [3, 5, 7]]
   end
-
   def game_start
     until (winner? || board.full?)
       @turn == 1 ? play(player1) : play(player2)

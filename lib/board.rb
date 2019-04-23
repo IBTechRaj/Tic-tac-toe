@@ -1,17 +1,11 @@
+require_relative '..\lib\module_ui.rb'
 class Board
   attr_accessor :environ
   def initialize(environ)
     @environ = environ
   end
 
-  def display_board
-    puts "  #{environ[6]} | #{environ[7]} | #{environ[8]}"
-    puts ' ---|---|---'
-    puts "  #{environ[3]} | #{environ[4]} | #{environ[5]}"
-    puts ' ---|---|---'
-    puts "  #{environ[0]} | #{environ[1]} | #{environ[2]}"
-  end
-
+  include UserInterface
   def full?
     environ.all? { |a| a.is_a?(String) }
   end

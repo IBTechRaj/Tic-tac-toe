@@ -1,6 +1,8 @@
 require_relative '..\lib\player.rb'
 require_relative '..\lib\board.rb'
+require_relative '..\lib\module_ui.rb'
 class Game
+  include UserInterface
   attr_reader :player1, :player2, :board
   def initialize(player1, player2, board)
     @player1 = player1
@@ -45,10 +47,10 @@ class Game
 
   def play(player)
     loop do
-      board.display_board
-      valid_move = player.move(board)
+      puts board.display_board
+      valid_move = move(player,board)
+      player.player_move.push(valid_move)
       next unless valid_move
-
       board.fill(valid_move-1, player.icon)
       player.player_move.push(valid_move).sort!
       break

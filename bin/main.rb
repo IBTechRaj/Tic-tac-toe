@@ -17,9 +17,13 @@ def initiate_environment
   game.game_start
 end
 
-while true 
-  initiate_environment
-  puts 'Do you want to play again? : (Y/N)'
-  wish = gets.chomp.to_s.upcase
-  break if wish == 'N'
+def main
+  while true 
+    initiate_environment
+    puts 'Do you want to play again? : (Y/N)'
+    wish = gets.chomp.to_s.upcase
+    break if wish == 'N'
+  end
 end
+
+main

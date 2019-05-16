@@ -23,7 +23,7 @@ class Game
 
   def game_end
     if winner?
-      board.display_board
+      puts board.display_board
       puts "Winner is: #{winner?}"
     elsif board.full?
       board.display_board
